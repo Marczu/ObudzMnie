@@ -1,24 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/alarm_background"
+    style="@style/Theme.AppCompat.DayNight.NoActionBar"
+    >
 
     <TimePicker
-        android:id="@+id/tp1"
+        android:id="@+id/timer_pickup"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:headerBackground="#00FFFFFF"
+        android:numbersBackgroundColor="#00FFFFFF"
+        android:numbersTextColor="@color/primary_light"/>
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_set_time"
-        android:layout_alignParentBottom="true"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginBottom="15dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:textSize="20sp"
-        android:textColor="@color/primary_text"
-        android:background="@drawable/white_rounded_button"
-        android:text="ZAPISZ"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_cancel"
+            android:layout_alignParentBottom="true"
+            android:layout_width="0dp"
+            android:layout_weight="50"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:textSize="20sp"
+            android:textColor="@color/primary_light"
+            android:background="@drawable/white_button"
+            android:text="ANULUJ"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_save"
+            android:layout_alignParentBottom="true"
+            android:layout_width="0dp"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="50"
+            android:layout_marginRight="25dp"
+            android:textSize="20sp"
+            android:textColor="@color/primary_light"
+            android:background="@drawable/white_button"
+            android:text="ZAPISZ"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
 </LinearLayout>

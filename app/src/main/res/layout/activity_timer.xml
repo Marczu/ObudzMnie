@@ -8,13 +8,25 @@
     android:background="@drawable/background"
     tools:context=".TimerActivity">
 
+    <TextView
+        android:id="@+id/ustawiony_czas"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        android:textColor="@color/icons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Budzik ustawiony na :" />
 
     <TextView
         android:id="@+id/tv_alarm"
-        android:textSize="40sp"
+        android:layout_below="@id/ustawiony_czas"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        android:textColor="@color/icons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
         tools:text="12:23:55"/>
 
@@ -28,7 +40,7 @@
         android:textSize="20sp"
         android:textColor="#FFF"
         android:background="@drawable/white_rounded_button"
-        android:text="ZAPISZ"
+        android:text="Wybierz czas"
         android:layout_height="wrap_content" />
 
 

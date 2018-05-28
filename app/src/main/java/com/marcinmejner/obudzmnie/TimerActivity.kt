@@ -1,7 +1,10 @@
 package com.marcinmejner.obudzmnie
 
+import android.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_timer.*
 
 class TimerActivity : AppCompatActivity() {
@@ -10,13 +13,27 @@ class TimerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
 
-
+        btn_set_time.setOnClickListener {
+            val popTimer = PopTimeFragment()
+            val fm = supportFragmentManager
+            popTimer.show(fm, getString(R.string.select_time))
+        }
     }
 
-    fun setTime(){
 
-        btn_set_time.setOnClickListener {
 
+    fun setTime(hours: Int, minutes: Int){
+
+        var myHour:String = hours.toString()
+        var myMinutes:String = minutes.toString()
+        if(hours<10){
+            myHour = "0$myHour"
         }
+        if(minutes<10){
+            myMinutes = "0$myMinutes"
+        }
+
+        tv_alarm.text = myHour + ":" + myMinutes
+        ustawiony_czas.visibility = View.VISIBLE
     }
 }
