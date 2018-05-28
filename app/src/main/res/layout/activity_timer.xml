@@ -6,29 +6,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".MainActivity">
+    tools:context=".TimerActivity">
 
 
     <TextView
-        android:id="@+id/tv_show_time"
-        android:textSize="30dp"
+        android:id="@+id/tv_alarm"
+        android:textSize="40sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
-        tools:text="Alarm"/>
+        tools:text="12:23:55"/>
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_add_new_alarm"
+        android:id="@+id/btn_set_time"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="#FFF"
         android:background="@drawable/white_rounded_button"
-        android:text="DODAJ ALARM"
+        android:text="ZAPISZ"
         android:layout_height="wrap_content" />
 
 
