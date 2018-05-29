@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.marcinmejner.obudzmnie.R
-import com.marcinmejner.obudzmnie.R.id.*
 import com.marcinmejner.obudzmnie.utils.SaveData
 import kotlinx.android.synthetic.main.activity_timer.*
 
@@ -41,6 +40,10 @@ class TimerActivity : AppCompatActivity() {
 
         val saveData = SaveData(applicationContext)
         Log.d(TAG, "setTime: godzina: $hours : minuty: $minutes")
-        saveData.setAlarm(hours, minutes)
+
+        /*save in shared prefs*/
+        saveData.saveData(hours, minutes)
+
+        saveData.setAlarm()
     }
 }

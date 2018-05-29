@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">ObudzMnie</string>
     <string name="select_time">Select Time</string>
+
+    <!--Intents-->
     <string name="intent_message">message</string>
+
+    <!--Shared prefs-->
+    <string name="shared_prefs">sharedPrefs</string>
+    <string name="sp_hour">hour</string>
+    <string name="sp_minute">minutes</string>
 </resources>

@@ -12,17 +12,36 @@ import java.util.*
 class SaveData{
 
     var context:Context?=null
+    var sp: SharedPreferences? = null
 
     constructor(context:Context){
-        this.context=context
-
+        this.context = context
+        this.sp = context.getSharedPreferences(context.getString(R.string.shared_prefs), Context.MODE_PRIVATE)
     }
 
-    fun setAlarm(hour: Int, minute: Int){
+    fun saveData(hour: Int, minute: Int){
+        val edit = sp?.edit()
+        edit?.putInt(context?.getString(R.string.sp_hour), hour)
+        edit?.putInt(context?.getString(R.string.sp_minute), minute)
+        edit?.commit()
+    }
+
+    fun gethour(): Int?{
+        return sp?.getInt(context?.getString(R.string.sp_hour), 0)
+    }
+
+    fun getMinute(): Int?{
+        return sp?.getInt(context?.getString(R.string.sp_minute), 0)
+    }
+
+    fun setAlarm(){
+
+        val hour = gethour()
+        val minute = getMinute()
 
         val calendar = Calendar.getInstance()
-        calendar.set(Calendar.HOUR_OF_DAY, hour)
-        calendar.set(Calendar.MINUTE, minute)
+        calendar.set(Calendar.HOUR_OF_DAY, hour!!)
+        calendar.set(Calendar.MINUTE, minute!!)
         calendar.set(Calendar.SECOND, 0)
 
         val alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
