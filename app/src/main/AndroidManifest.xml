@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.marcinmejner.obudzmnie">
 
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -18,21 +18,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".timer.TimerActivity"></activity>
+        <activity android:name=".timer.TimerActivity" />
 
-        <receiver android:name=".broadcast.MyBroadcastReciver"
+        <receiver
+            android:name=".broadcast.MyBroadcastReciver"
             android:enabled="true"
             android:exported="true">
-
             <intent-filter>
-                <action android:name="com.tester.alarmmanager"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
+                <action android:name="com.tester.alarmmanager" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </receiver>
 
-
+        <activity android:name=".alarm.AlarmActivity"
+            android:launchMode="singleTop">
+            
+        </activity>
     </application>
 
 </manifest>

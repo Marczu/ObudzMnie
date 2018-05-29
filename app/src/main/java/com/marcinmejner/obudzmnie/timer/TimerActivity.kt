@@ -15,6 +15,9 @@ class TimerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
 
+        val saveData = SaveData(applicationContext)
+        tv_alarm.text = saveData.gethour().toString() + ":" + saveData.getMinute().toString()
+
         btn_set_time.setOnClickListener {
             val popTimer = PopTimeFragment()
             val fm = supportFragmentManager
