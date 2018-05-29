@@ -20,7 +20,9 @@
         </activity>
         <activity android:name=".timer.TimerActivity"></activity>
 
-        <receiver android:name=".broadcast.MyBroadcastReciver">
+        <receiver android:name=".broadcast.MyBroadcastReciver"
+            android:enabled="true"
+            android:exported="true">
 
             <intent-filter>
                 <action android:name="com.tester.alarmmanager"/>
@@ -29,6 +31,8 @@
             </intent-filter>
 
         </receiver>
+
+
     </application>
 
 </manifest>
