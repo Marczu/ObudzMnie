@@ -1,7 +1,5 @@
-package com.marcinmejner.obudzmnie
+package com.marcinmejner.obudzmnie.timer
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
@@ -10,8 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TimePicker
-import android.support.v7.app.AppCompatActivity
-import kotlinx.android.synthetic.main.fragment_poptime.*
+import com.marcinmejner.obudzmnie.R
 
 
 class PopTimeFragment : DialogFragment() {

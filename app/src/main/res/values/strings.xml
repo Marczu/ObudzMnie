@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ObudzMnie</string>
     <string name="select_time">Select Time</string>
+    <string name="intent_message">message</string>
 </resources>

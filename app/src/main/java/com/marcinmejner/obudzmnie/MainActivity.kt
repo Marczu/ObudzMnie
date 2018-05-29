@@ -3,6 +3,8 @@ package com.marcinmejner.obudzmnie
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.marcinmejner.obudzmnie.R.id.btn_add_new_alarm
+import com.marcinmejner.obudzmnie.timer.TimerActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
