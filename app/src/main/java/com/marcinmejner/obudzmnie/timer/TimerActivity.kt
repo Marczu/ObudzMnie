@@ -1,5 +1,7 @@
 package com.marcinmejner.obudzmnie.timer
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,13 +13,25 @@ import kotlinx.android.synthetic.main.activity_timer.*
 class TimerActivity : AppCompatActivity() {
     private val TAG = "TimerActivity"
 
+    //vars
     lateinit var saveData: SaveData
+    lateinit var sp: SharedPreferences
+    lateinit var editor: SharedPreferences.Editor
+
+    //time
+    var myHour: String = ""
+    var myMinutes: String = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
 
-        val saveData = SaveData(applicationContext)
+        sp = this.getSharedPreferences(this.getString(R.string.shared_prefs), Context.MODE_PRIVATE)
+        editor = sp.edit()
+
+
+        saveData = SaveData(applicationContext)
         tv_alarm.text = saveData.gethour().toString() + ":" + saveData.getMinute().toString()
 
         btn_set_time.setOnClickListener {
@@ -26,24 +40,26 @@ class TimerActivity : AppCompatActivity() {
             popTimer.show(fm, getString(R.string.select_time))
         }
 
+        checkForExistingAlarm()
+
         cancelAlarm()
     }
 
 
+    fun setTime(hours: Int, minutes: Int) {
 
-    fun setTime(hours: Int, minutes: Int){
-
-        var myHour:String = hours.toString()
-        var myMinutes:String = minutes.toString()
-        if(hours<10){
+        myHour = hours.toString()
+        myMinutes = minutes.toString()
+        if (hours < 10) {
             myHour = "0$myHour"
         }
-        if(minutes<10){
+        if (minutes < 10) {
             myMinutes = "0$myMinutes"
         }
 
         tv_alarm.text = myHour + ":" + myMinutes
         ustawiony_czas.visibility = View.VISIBLE
+        ustawiony_czas.text = "Budzik ustawiony na :"
 
         saveData = SaveData(applicationContext)
         Log.d(TAG, "setTime: godzina: $hours : minuty: $minutes")
@@ -55,9 +71,32 @@ class TimerActivity : AppCompatActivity() {
         btn_cancel_alarm.visibility = View.VISIBLE
     }
 
-    fun cancelAlarm(){
+    fun cancelAlarm() {
         btn_cancel_alarm.setOnClickListener {
             saveData.setCancelAlarm()
+            editor.putInt(this.getString(R.string.sp_hour), -1)
+            editor.putInt(this.getString(R.string.sp_minute), -1)
+            editor.commit()
+
+            ustawiony_czas.text = "Brak ustawionych alarmów"
+            tv_alarm.text = ""
+            btn_cancel_alarm.visibility = View.GONE
         }
+    }
+
+    fun checkForExistingAlarm() {
+        if (sp.getInt(getString(R.string.sp_hour), -1) == -1) {
+            ustawiony_czas.visibility = View.VISIBLE
+            ustawiony_czas.text = "Brak ustawionych alarmów"
+            tv_alarm.text = ""
+
+        }
+        else{
+            saveData.setAlarm()
+            ustawiony_czas.text = "Budzik ustawiony na :"
+            ustawiony_czas.visibility = View.VISIBLE
+            btn_cancel_alarm.visibility = View.VISIBLE
+        }
+
     }
 }

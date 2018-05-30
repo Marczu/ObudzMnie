@@ -22,7 +22,7 @@ class MyNotification(val context: Context?) {
                 .setDefaults(Notification.DEFAULT_SOUND)
                 .setDefaults(Notification.DEFAULT_LIGHTS)
                 .setLights(Color.BLUE, 500, 500)
-                .setSound(alarmSound)
+//                .setSound(alarmSound)
                 .setContentInfo("Info")
 
         val notificationManager: NotificationManager = context?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

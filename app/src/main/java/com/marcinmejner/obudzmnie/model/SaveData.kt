@@ -19,6 +19,7 @@ class SaveData{
     constructor(context:Context){
         this.context = context
         this.sp = context.getSharedPreferences(context.getString(R.string.shared_prefs), Context.MODE_PRIVATE)
+        alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
     }
 
     fun saveData(hour: Int, minute: Int){
@@ -46,9 +47,7 @@ class SaveData{
         calendar.set(Calendar.MINUTE, minute!!)
         calendar.set(Calendar.SECOND, 0)
 
-
-
-        alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+//        alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, MyBroadcastReciver::class.java)
         intent.putExtra(context?.getString(R.string.intent_message), "alarm time")
         intent.action = "com.tester.alarmmanager"
