@@ -51,6 +51,8 @@ class TimerActivity : AppCompatActivity() {
     }
 
 
+
+
     fun setTime(hours: Int, minutes: Int) {
 
         myHour = hours.toString()
@@ -62,9 +64,7 @@ class TimerActivity : AppCompatActivity() {
             myMinutes = "0$myMinutes"
         }
 
-        tv_alarm.text = myHour + ":" + myMinutes
         ustawiony_czas.visibility = View.VISIBLE
-        ustawiony_czas.text = "Budzik ustawiony na :"
 
         saveData = SaveData(applicationContext)
         Log.d(TAG, "setTime: godzina: $hours : minuty: $minutes")
@@ -74,6 +74,9 @@ class TimerActivity : AppCompatActivity() {
 
         saveData.setAlarm()
         btn_cancel_alarm.visibility = View.VISIBLE
+
+        checkIfItIsToomorow()
+        tv_alarm.text = myHour + ":" + myMinutes
     }
 
     fun cancelAlarm() {
@@ -94,17 +97,38 @@ class TimerActivity : AppCompatActivity() {
             ustawiony_czas.visibility = View.VISIBLE
             ustawiony_czas.text = "Brak ustawionych alarmów"
             tv_alarm.text = ""
+            Log.d(TAG, "checkForExistingAlarm: sp bez alarmu: ${sp.getInt(getString(R.string.sp_hour), -1)}   ${sp.getInt(getString(R.string.sp_minute), -1)}")
 
         }
         else{
+
+            if (sp.getInt(getString(R.string.sp_hour), -1) < 10) {
+                myHour = "0${sp.getInt(getString(R.string.sp_hour), -1)}"
+            }
+            if (sp.getInt(getString(R.string.sp_minute), -1) < 10) {
+                myMinutes = "0${sp.getInt(getString(R.string.sp_minute), -1)}"
+            }
+
+            tv_alarm.text = myHour + ":" + myMinutes
+
+
             saveData.setAlarm()
-            ustawiony_czas.text = "Następny alarm: ${TimeManipulations.timeTomorrow()}," +
-                    " ${sp.getInt(getString(R.string.sp_hour), -1)}:${sp.getInt(getString(R.string.sp_minute), -1)}  "
+            checkIfItIsToomorow()
             ustawiony_czas.visibility = View.VISIBLE
             btn_cancel_alarm.visibility = View.VISIBLE
             Log.d(TAG, "checkForExistingAlarm: ${sp.getInt(getString(R.string.sp_hour), -1)}   ${sp.getInt(getString(R.string.sp_minute), -1)}")
 
         }
 
+    }
+
+    fun checkIfItIsToomorow(){
+        val timeManip = TimeManipulations()
+        if(saveData.isTommorow){
+            ustawiony_czas.text = "Następny alarm: ${timeManip.timeTomorrow()}," +
+                    " $myHour:$myMinutes"
+        }else{
+            ustawiony_czas.text = "Alarm ustawiony na:"
+        }
     }
 }

@@ -12,12 +12,13 @@
         android:id="@+id/ustawiony_czas"
         android:textSize="16sp"
         android:visibility="invisible"
-        android:textColor="@color/icons"
+        android:textColor="#cfd8dc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:text="Budzik ustawiony na :" />
+
 
     <TextView
         android:id="@+id/tv_alarm"

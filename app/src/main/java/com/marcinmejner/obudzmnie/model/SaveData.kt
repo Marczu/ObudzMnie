@@ -18,6 +18,7 @@ class SaveData{
     var sp: SharedPreferences? = null
     lateinit var alarmManager: AlarmManager
     lateinit var pi:PendingIntent
+    var isTommorow: Boolean = false
 
     constructor(context:Context){
         this.context = context
@@ -56,6 +57,9 @@ class SaveData{
         var startUpTime = calendar.timeInMillis
         if (System.currentTimeMillis() > startUpTime) {
             startUpTime = startUpTime + 24 * 60 * 60 * 1000
+            isTommorow = true
+        }else{
+            isTommorow = false
         }
 
         alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
