@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import com.marcinmejner.obudzmnie.R
 import com.marcinmejner.obudzmnie.model.SaveData
+import com.marcinmejner.obudzmnie.utils.TimeManipulations
 import kotlinx.android.synthetic.main.activity_timer.*
 
 class TimerActivity : AppCompatActivity() {
@@ -27,6 +28,8 @@ class TimerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
 
+
+
         sp = this.getSharedPreferences(this.getString(R.string.shared_prefs), Context.MODE_PRIVATE)
         editor = sp.edit()
 
@@ -43,6 +46,8 @@ class TimerActivity : AppCompatActivity() {
         checkForExistingAlarm()
 
         cancelAlarm()
+
+
     }
 
 
@@ -85,7 +90,7 @@ class TimerActivity : AppCompatActivity() {
     }
 
     fun checkForExistingAlarm() {
-        if (sp.getInt(getString(R.string.sp_hour), -1) == -1) {
+        if (sp.getInt(getString(R.string.sp_hour), -100) == -1) {
             ustawiony_czas.visibility = View.VISIBLE
             ustawiony_czas.text = "Brak ustawionych alarmów"
             tv_alarm.text = ""
@@ -93,9 +98,12 @@ class TimerActivity : AppCompatActivity() {
         }
         else{
             saveData.setAlarm()
-            ustawiony_czas.text = "Budzik ustawiony na :"
+            ustawiony_czas.text = "Następny alarm: ${TimeManipulations.timeTomorrow()}," +
+                    " ${sp.getInt(getString(R.string.sp_hour), -1)}:${sp.getInt(getString(R.string.sp_minute), -1)}  "
             ustawiony_czas.visibility = View.VISIBLE
             btn_cancel_alarm.visibility = View.VISIBLE
+            Log.d(TAG, "checkForExistingAlarm: ${sp.getInt(getString(R.string.sp_hour), -1)}   ${sp.getInt(getString(R.string.sp_minute), -1)}")
+
         }
 
     }
