@@ -9,6 +9,7 @@ import android.support.constraint.Constraints.TAG
 import android.util.Log
 import com.marcinmejner.obudzmnie.R
 import com.marcinmejner.obudzmnie.broadcast.MyBroadcastReciver
+import com.marcinmejner.obudzmnie.utils.TimeManipulations
 import java.util.*
 
 class SaveData{
@@ -77,6 +78,31 @@ class SaveData{
 
     fun setCancelAlarm(){
         alarmManager.cancel(pi)
+    }
+
+    fun setSnooze(addSnoozeTime: Int){
+
+        val timeManip = TimeManipulations()
+
+        val hour = gethour()
+        val minute = getMinute()
+
+        val calendar = Calendar.getInstance()
+        calendar.set(Calendar.HOUR_OF_DAY, hour!!)
+        calendar.set(Calendar.MINUTE, timeManip.addSnoozeTime(addSnoozeTime))
+        calendar.set(Calendar.SECOND, 0)
+
+
+        alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(context, MyBroadcastReciver::class.java)
+        intent.putExtra(context?.getString(R.string.intent_message), "alarm time")
+        intent.action = "com.tester.alarmmanager"
+
+        pi = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis,
+                AlarmManager.INTERVAL_DAY, pi)
+
     }
 
 

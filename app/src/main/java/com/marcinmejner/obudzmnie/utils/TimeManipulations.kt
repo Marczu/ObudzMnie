@@ -5,14 +5,13 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-
-class TimeManipulations{
+class TimeManipulations {
     private val TAG = "TimeManipulations"
 
     val calendar = Calendar.getInstance()
     val calendar2 = Calendar.getInstance()
 
-    fun timeTomorrow(): String{
+    fun timeTomorrow(): String {
 
         calendar.timeZone = TimeZone.getTimeZone("Europe/Warsaw")
 
@@ -30,5 +29,13 @@ class TimeManipulations{
         Log.d(TAG, "getTime: $tomorowDate i $today")
 
         return tomorowDate
+    }
+
+    fun addSnoozeTime(addedMinutes: Int): Int {
+        calendar.timeZone = TimeZone.getTimeZone("Europe/Warsaw")
+        calendar.time
+        calendar.add(Calendar.MINUTE, 2)
+        Log.d(TAG, "addSnoozeTime: minuty to : ${calendar.get(Calendar.MINUTE)}")
+        return calendar.get(Calendar.MINUTE)
     }
 }

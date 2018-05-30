@@ -12,14 +12,27 @@
         android:id="@+id/btn_stop_alarm"
         android:layout_width="match_parent"
         android:height="300dp"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="50dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:textSize="20dp"
         android:textColor="#FFF"
         android:background="@drawable/white_rounded_button"
         android:text="WYŁĄCZ ALARM"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_snooze"
+        android:layout_width="match_parent"
+        android:layout_below="@id/btn_stop_alarm"
+        android:height="150dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textSize="20dp"
+        android:textColor="#FFF"
+        android:background="@drawable/white_rounded_button"
+        android:text="DRZEMKA"
         android:layout_height="wrap_content" />
 
 </RelativeLayout>

@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import com.marcinmejner.obudzmnie.R
+import com.marcinmejner.obudzmnie.model.SaveData
+import com.marcinmejner.obudzmnie.utils.TimeManipulations
 import kotlinx.android.synthetic.main.activity_alarm.*
 
 class AlarmActivity : AppCompatActivity() {
@@ -15,6 +17,7 @@ class AlarmActivity : AppCompatActivity() {
         setContentView(R.layout.activity_alarm)
         startAlarm()
         stopAlarm()
+        snoozeButton()
     }
 
     fun startAlarm(){
@@ -28,6 +31,17 @@ class AlarmActivity : AppCompatActivity() {
             player.stop()
 
             finish()
+        }
+    }
+
+    fun snoozeButton(){
+        btn_snooze.setOnClickListener {
+
+            val saveData = SaveData(this)
+            saveData.setSnooze(2)
+            player.stop()
+            finish()
+
         }
     }
 }
