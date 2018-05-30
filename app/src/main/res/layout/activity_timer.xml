@@ -31,6 +31,20 @@
         tools:text="12:23:55"/>
 
     <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_cancel_alarm"
+        android:layout_below="@+id/tv_alarm"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textSize="20sp"
+        android:textColor="#ff7043"
+        android:visibility="invisible"
+        android:background="@drawable/white_rounded_button"
+        android:text="Anuluj Alarm"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.AppCompatButton
         android:id="@+id/btn_set_time"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"

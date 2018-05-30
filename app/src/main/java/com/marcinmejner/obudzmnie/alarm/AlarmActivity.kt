@@ -26,6 +26,8 @@ class AlarmActivity : AppCompatActivity() {
     fun stopAlarm(){
         btn_stop_alarm.setOnClickListener {
             player.stop()
+
+            finish()
         }
     }
 }

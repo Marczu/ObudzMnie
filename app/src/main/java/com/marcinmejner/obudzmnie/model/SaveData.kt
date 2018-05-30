@@ -1,4 +1,4 @@
-package com.marcinmejner.obudzmnie.utils
+package com.marcinmejner.obudzmnie.model
 
 import android.app.AlarmManager
 import android.app.PendingIntent
@@ -13,6 +13,8 @@ class SaveData{
 
     var context:Context?=null
     var sp: SharedPreferences? = null
+    lateinit var alarmManager: AlarmManager
+    lateinit var pi:PendingIntent
 
     constructor(context:Context){
         this.context = context
@@ -44,14 +46,23 @@ class SaveData{
         calendar.set(Calendar.MINUTE, minute!!)
         calendar.set(Calendar.SECOND, 0)
 
-        val alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
+
+        alarmManager = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, MyBroadcastReciver::class.java)
         intent.putExtra(context?.getString(R.string.intent_message), "alarm time")
         intent.action = "com.tester.alarmmanager"
 
-        val pi = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        pi = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis,
                 AlarmManager.INTERVAL_DAY, pi)
+
     }
+
+    fun setCancelAlarm(){
+        alarmManager.cancel(pi)
+    }
+
+
 }

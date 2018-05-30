@@ -5,7 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import com.marcinmejner.obudzmnie.utils.MyNotification
-import com.marcinmejner.obudzmnie.utils.SaveData
+import com.marcinmejner.obudzmnie.model.SaveData
 import android.support.v4.content.ContextCompat.startActivity
 import com.marcinmejner.obudzmnie.alarm.AlarmActivity
 

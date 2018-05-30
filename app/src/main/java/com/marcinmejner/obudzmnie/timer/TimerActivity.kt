@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.marcinmejner.obudzmnie.R
-import com.marcinmejner.obudzmnie.utils.SaveData
+import com.marcinmejner.obudzmnie.model.SaveData
 import kotlinx.android.synthetic.main.activity_timer.*
 
 class TimerActivity : AppCompatActivity() {
     private val TAG = "TimerActivity"
+
+    lateinit var saveData: SaveData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +25,8 @@ class TimerActivity : AppCompatActivity() {
             val fm = supportFragmentManager
             popTimer.show(fm, getString(R.string.select_time))
         }
+
+        cancelAlarm()
     }
 
 
@@ -41,12 +45,19 @@ class TimerActivity : AppCompatActivity() {
         tv_alarm.text = myHour + ":" + myMinutes
         ustawiony_czas.visibility = View.VISIBLE
 
-        val saveData = SaveData(applicationContext)
+        saveData = SaveData(applicationContext)
         Log.d(TAG, "setTime: godzina: $hours : minuty: $minutes")
 
         /*save in shared prefs*/
         saveData.saveData(hours, minutes)
 
         saveData.setAlarm()
+        btn_cancel_alarm.visibility = View.VISIBLE
+    }
+
+    fun cancelAlarm(){
+        btn_cancel_alarm.setOnClickListener {
+            saveData.setCancelAlarm()
+        }
     }
 }
