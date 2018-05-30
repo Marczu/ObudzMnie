@@ -29,10 +29,8 @@ class TimerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_timer)
 
 
-
         sp = this.getSharedPreferences(this.getString(R.string.shared_prefs), Context.MODE_PRIVATE)
         editor = sp.edit()
-
 
         saveData = SaveData(applicationContext)
         tv_alarm.text = saveData.gethour().toString() + ":" + saveData.getMinute().toString()
@@ -104,9 +102,13 @@ class TimerActivity : AppCompatActivity() {
 
             if (sp.getInt(getString(R.string.sp_hour), -1) < 10) {
                 myHour = "0${sp.getInt(getString(R.string.sp_hour), -1)}"
+            } else{
+                myHour = "${sp.getInt(getString(R.string.sp_hour), -1)}"
             }
             if (sp.getInt(getString(R.string.sp_minute), -1) < 10) {
                 myMinutes = "0${sp.getInt(getString(R.string.sp_minute), -1)}"
+            }else{
+                myMinutes = "${sp.getInt(getString(R.string.sp_minute), -1)}"
             }
 
             tv_alarm.text = myHour + ":" + myMinutes
@@ -128,7 +130,7 @@ class TimerActivity : AppCompatActivity() {
             ustawiony_czas.text = "Następny alarm: ${timeManip.timeTomorrow()}," +
                     " $myHour:$myMinutes"
         }else{
-            ustawiony_czas.text = "Alarm ustawiony na:"
+            ustawiony_czas.text = "Alarm ustawiony na godzinę:"
         }
     }
 }

@@ -17,7 +17,7 @@
         android:layout_marginRight="15dp"
         android:textSize="20dp"
         android:textColor="#FFF"
-        android:background="@drawable/white_rounded_button"
+        android:background="@drawable/white_rounded_button_alarm"
         android:text="WYŁĄCZ ALARM"
         android:layout_height="wrap_content" />
 
@@ -31,7 +31,7 @@
         android:layout_marginRight="15dp"
         android:textSize="20dp"
         android:textColor="#FFF"
-        android:background="@drawable/white_rounded_button"
+        android:background="@drawable/white_rounded_button_snooze"
         android:text="DRZEMKA"
         android:layout_height="wrap_content" />
 
