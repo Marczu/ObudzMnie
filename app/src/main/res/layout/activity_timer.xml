@@ -17,12 +17,20 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
+        android:layout_marginBottom="15dp"
         android:text="Budzik ustawiony na :" />
 
+<RelativeLayout
+    android:id="@+id/rellayout1"
+    android:layout_below="@id/ustawiony_czas"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_rounded_square">
 
     <TextView
         android:id="@+id/tv_alarm"
-        android:layout_below="@id/ustawiony_czas"
         android:textSize="60sp"
         android:textStyle="bold"
         android:textColor="@color/icons"
@@ -45,17 +53,21 @@
         android:text="Anuluj Alarm"
         android:layout_height="wrap_content" />
 
+
+</RelativeLayout>
+
+
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/btn_set_time"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="35dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:textSize="20sp"
         android:textColor="#FFF"
         android:background="@drawable/white_rounded_button"
-        android:text="Wybierz czas"
+        android:text="Nowy Alarm"
         android:layout_height="wrap_content" />
 
 

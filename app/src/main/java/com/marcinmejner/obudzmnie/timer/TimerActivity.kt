@@ -28,7 +28,6 @@ class TimerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timer)
 
-
         sp = this.getSharedPreferences(this.getString(R.string.shared_prefs), Context.MODE_PRIVATE)
         editor = sp.edit()
 
@@ -42,10 +41,7 @@ class TimerActivity : AppCompatActivity() {
         }
 
         checkForExistingAlarm()
-
         cancelAlarm()
-
-
     }
 
 
@@ -63,6 +59,7 @@ class TimerActivity : AppCompatActivity() {
         }
 
         ustawiony_czas.visibility = View.VISIBLE
+        rellayout1.visibility = View.VISIBLE
 
         saveData = SaveData(applicationContext)
         Log.d(TAG, "setTime: godzina: $hours : minuty: $minutes")
@@ -87,6 +84,7 @@ class TimerActivity : AppCompatActivity() {
             ustawiony_czas.text = "Brak ustawionych alarmów"
             tv_alarm.text = ""
             btn_cancel_alarm.visibility = View.GONE
+            rellayout1.visibility = View.GONE
         }
     }
 
@@ -95,8 +93,8 @@ class TimerActivity : AppCompatActivity() {
             ustawiony_czas.visibility = View.VISIBLE
             ustawiony_czas.text = "Brak ustawionych alarmów"
             tv_alarm.text = ""
+            rellayout1.visibility = View.GONE
             Log.d(TAG, "checkForExistingAlarm: sp bez alarmu: ${sp.getInt(getString(R.string.sp_hour), -1)}   ${sp.getInt(getString(R.string.sp_minute), -1)}")
-
         }
         else{
 
@@ -118,6 +116,7 @@ class TimerActivity : AppCompatActivity() {
             checkIfItIsToomorow()
             ustawiony_czas.visibility = View.VISIBLE
             btn_cancel_alarm.visibility = View.VISIBLE
+            rellayout1.visibility = View.VISIBLE
             Log.d(TAG, "checkForExistingAlarm: ${sp.getInt(getString(R.string.sp_hour), -1)}   ${sp.getInt(getString(R.string.sp_minute), -1)}")
 
         }
