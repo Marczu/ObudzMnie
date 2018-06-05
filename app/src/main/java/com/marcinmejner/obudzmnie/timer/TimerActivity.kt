@@ -37,7 +37,14 @@ class TimerActivity : AppCompatActivity() {
         btn_set_time.setOnClickListener {
             val popTimer = PopTimeFragment()
             val fm = supportFragmentManager
+
             popTimer.show(fm, getString(R.string.select_time))
+        }
+
+        tv_snooze_time.setOnClickListener {
+            val snoozeTimer = SnoozeTimePickerFragment()
+            val fm = supportFragmentManager
+            snoozeTimer.show(fm, getString(R.string.select_snooze_time))
         }
 
         checkForExistingAlarm()
