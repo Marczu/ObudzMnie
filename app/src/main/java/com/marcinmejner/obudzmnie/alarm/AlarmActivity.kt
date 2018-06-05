@@ -49,7 +49,7 @@ class AlarmActivity : AppCompatActivity() {
         btn_snooze.setOnClickListener {
 
             val saveData = SaveData(this)
-            saveData.setSnooze(2)
+            saveData.setSnooze()
             player.stop()
             finish()
 

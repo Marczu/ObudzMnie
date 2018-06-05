@@ -22,6 +22,7 @@ class TimerActivity : AppCompatActivity() {
     //time
     var myHour: String = ""
     var myMinutes: String = ""
+    var snoozeMinutesTime: Int = 10
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +31,9 @@ class TimerActivity : AppCompatActivity() {
 
         sp = this.getSharedPreferences(this.getString(R.string.shared_prefs), Context.MODE_PRIVATE)
         editor = sp.edit()
+
+        tv_snooze_minutes.text = "Liczba minut: ${sp.getInt(getString(R.string.sp_snooze_minutes), 10)}"
+
 
         saveData = SaveData(applicationContext)
         tv_alarm.text = saveData.gethour().toString() + ":" + saveData.getMinute().toString()
@@ -141,7 +145,8 @@ class TimerActivity : AppCompatActivity() {
     }
 
     fun setSnoozeMinutes(minutes: Int){
-        tv_snooze_minutes.text = "Liczba minut: $minutes"
         editor.putInt(getString(R.string.sp_snooze_minutes), minutes)
+
+        tv_snooze_minutes.text = "Liczba minut: $minutes"
     }
 }

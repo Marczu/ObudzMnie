@@ -80,7 +80,7 @@ class SaveData{
         alarmManager.cancel(pi)
     }
 
-    fun setSnooze(addSnoozeTime: Int){
+    fun setSnooze(){
 
         val timeManip = TimeManipulations()
 
@@ -89,7 +89,7 @@ class SaveData{
 
         val calendar = Calendar.getInstance()
         calendar.set(Calendar.HOUR_OF_DAY, hour!!)
-        calendar.set(Calendar.MINUTE, timeManip.addSnoozeTime(addSnoozeTime))
+        calendar.set(Calendar.MINUTE, timeManip.addSnoozeTime(sp?.getInt(context?.getString(R.string.sp_snooze_minutes), 15)!!))
         calendar.set(Calendar.SECOND, 0)
 
 
