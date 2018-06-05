@@ -57,6 +57,30 @@
 </RelativeLayout>
 
 
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:layout_below="@id/rellayout1"
+        android:id="@+id/tv_snooze_time"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ustaw czas drzemki"/>
+
+    <TextView
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#FFF"
+        android:textSize="12sp"
+        android:layout_below="@id/tv_snooze_time"
+        android:id="@+id/tv_snooze_minutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Liczba minut:"/>
+
+
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/btn_set_time"
         android:layout_alignParentBottom="true"

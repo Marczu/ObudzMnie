@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background1"
+    android:background="@drawable/background"
     style="@style/Theme.AppCompat.DayNight.NoActionBar"
     >
 
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:headerBackground="#00FFFFFF"
         android:numbersBackgroundColor="#00FFFFFF"
-        android:numbersTextColor="@color/secondary_text"
+        android:numbersTextColor="@color/icons"
         android:numbersInnerTextColor="@color/secondary_text"/>
 
     <LinearLayout

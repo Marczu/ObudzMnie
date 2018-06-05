@@ -33,7 +33,9 @@
         </receiver>
 
         <activity android:name=".alarm.AlarmActivity"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:showOnLockScreen="true"
+            android:screenOrientation="sensorPortrait">
             
         </activity>
     </application>

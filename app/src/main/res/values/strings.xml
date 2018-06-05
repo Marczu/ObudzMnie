@@ -9,4 +9,7 @@
     <string name="shared_prefs">sharedPrefs</string>
     <string name="sp_hour">hour</string>
     <string name="sp_minute">minutes</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
