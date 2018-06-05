@@ -139,4 +139,9 @@ class TimerActivity : AppCompatActivity() {
             ustawiony_czas.text = "Alarm ustawiony na godzinę:"
         }
     }
+
+    fun setSnoozeMinutes(minutes: Int){
+        tv_snooze_minutes.text = "Liczba minut: $minutes"
+        editor.putInt(getString(R.string.sp_snooze_minutes), minutes)
+    }
 }

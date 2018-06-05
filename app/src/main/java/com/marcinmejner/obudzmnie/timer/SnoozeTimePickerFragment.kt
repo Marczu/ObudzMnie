@@ -44,13 +44,19 @@ class SnoozeTimePickerFragment :  DialogFragment() {
             Log.d(TAG, "setNumberPicker: wcisnieto auluj")
         }
 
-        saveDialog.setOnClickListener {
+
             picker.setOnValueChangedListener { picker, oldVal, newVal ->
 
 
+                saveDialog.setOnClickListener {
+                    Log.d(TAG, "setNumberPicker: wybrany numer to $newVal ")
+                    val timerActivity = activity as TimerActivity
+                    timerActivity.setSnoozeMinutes(newVal)
+                    this@SnoozeTimePickerFragment.dismiss()
+                }
             }
             Log.d(TAG, "setNumberPicker: wybrany numer to ")
-        }
+
 
 
     }
