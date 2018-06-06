@@ -60,11 +60,11 @@
     <TextView
         android:layout_marginTop="25dp"
         android:layout_marginLeft="10dp"
-        android:textColor="#FFF"
+        android:textColor="#cfd8dc"
         android:textStyle="bold"
         android:layout_below="@id/rellayout1"
         android:id="@+id/tv_snooze_time"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ustaw czas drzemki"/>
@@ -72,7 +72,7 @@
     <TextView
         android:layout_marginTop="1dp"
         android:layout_marginLeft="10dp"
-        android:textColor="#FFF"
+        android:textColor="#cfd8dc"
         android:textSize="12sp"
         android:layout_below="@id/tv_snooze_time"
         android:id="@+id/tv_snooze_minutes"

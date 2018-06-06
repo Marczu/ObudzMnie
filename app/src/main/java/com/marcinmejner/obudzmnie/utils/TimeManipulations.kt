@@ -34,7 +34,7 @@ class TimeManipulations {
     fun addSnoozeTime(addedMinutes: Int): Int {
         calendar.timeZone = TimeZone.getTimeZone("Europe/Warsaw")
         calendar.time
-        calendar.add(Calendar.MINUTE, 2)
+        calendar.add(Calendar.MINUTE, addedMinutes)
         Log.d(TAG, "addSnoozeTime: minuty to : ${calendar.get(Calendar.MINUTE)}")
         return calendar.get(Calendar.MINUTE)
     }

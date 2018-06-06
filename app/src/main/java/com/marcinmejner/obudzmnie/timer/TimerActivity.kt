@@ -32,7 +32,8 @@ class TimerActivity : AppCompatActivity() {
         sp = this.getSharedPreferences(this.getString(R.string.shared_prefs), Context.MODE_PRIVATE)
         editor = sp.edit()
 
-        tv_snooze_minutes.text = "Liczba minut: ${sp.getInt(getString(R.string.sp_snooze_minutes), 10)}"
+        tv_snooze_minutes.text = "Liczba minut: ${sp.getInt(getString(R.string.sp_snooze_minutes_dely), 30)}"
+        Log.d(TAG, "onCreate: liczba minut snooze ${sp.getInt(getString(R.string.sp_snooze_minutes_dely), 10)}")
 
 
         saveData = SaveData(applicationContext)
@@ -145,8 +146,9 @@ class TimerActivity : AppCompatActivity() {
     }
 
     fun setSnoozeMinutes(minutes: Int){
-        editor.putInt(getString(R.string.sp_snooze_minutes), minutes)
+        snoozeMinutesTime = minutes
+        editor.putInt(getString(R.string.sp_snooze_minutes_dely), snoozeMinutesTime).commit()
 
-        tv_snooze_minutes.text = "Liczba minut: $minutes"
+        tv_snooze_minutes.text = "Liczba minut: ${sp.getInt(getString(R.string.sp_snooze_minutes_dely), 10)}"
     }
 }
