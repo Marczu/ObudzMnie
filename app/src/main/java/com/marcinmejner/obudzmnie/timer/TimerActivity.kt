@@ -46,7 +46,7 @@ class TimerActivity : AppCompatActivity() {
             popTimer.show(fm, getString(R.string.select_time))
         }
 
-        tv_snooze_time.setOnClickListener {
+        snoozeRelLayout.setOnClickListener {
             val snoozeTimer = SnoozeTimePickerFragment()
             val fm = supportFragmentManager
             snoozeTimer.show(fm, getString(R.string.select_snooze_time))
