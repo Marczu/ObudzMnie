@@ -11,10 +11,12 @@
         android:id="@+id/timer_pickup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:headerBackground="#00FFFFFF"
-        android:numbersBackgroundColor="#00FFFFFF"
-        android:numbersTextColor="@color/icons"
-        android:numbersInnerTextColor="@color/secondary_text"/>
+        android:headerBackground="#20FFFFFF"
+        android:numbersBackgroundColor="#50FFFFFF"
+        android:background="#50FFFFFF"
+
+
+        android:numbersInnerTextColor="@color/colorAccent"/>
 
     <LinearLayout
         android:layout_width="match_parent"

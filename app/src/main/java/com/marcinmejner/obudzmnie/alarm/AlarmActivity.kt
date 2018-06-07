@@ -32,7 +32,7 @@ class AlarmActivity : AppCompatActivity() {
     }
 
     fun startAlarm(){
-        player = MediaPlayer.create(this, Settings.System.DEFAULT_RINGTONE_URI)
+        player = MediaPlayer.create(this, R.raw.alarm1)
         player.isLooping = true
         player.start()
     }
@@ -54,5 +54,10 @@ class AlarmActivity : AppCompatActivity() {
             finish()
 
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        player.stop()
     }
 }

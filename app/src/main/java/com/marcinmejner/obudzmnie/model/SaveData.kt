@@ -16,7 +16,7 @@ class SaveData{
     private val TAG = "SaveData"
 
     var context:Context?=null
-    var sp: SharedPreferences? = null
+    var sp: SharedPreferences
     lateinit var alarmManager: AlarmManager
     lateinit var pi:PendingIntent
     var isTommorow: Boolean = false
@@ -28,19 +28,19 @@ class SaveData{
     }
 
     fun saveData(hour: Int, minute: Int){
-        val edit = sp?.edit()
+        val edit = sp.edit()
         edit?.putInt(context?.getString(R.string.sp_hour), hour)
         edit?.putInt(context?.getString(R.string.sp_minute), minute)
         edit?.commit()
     }
 
     fun gethour(): Int?{
-        return sp?.getInt(context?.getString(R.string.sp_hour), 0)
+        return sp.getInt(context?.getString(R.string.sp_hour), 0)
         Log.d(TAG, "gethour: godzina a savetime: ${sp?.getInt(context?.getString(R.string.sp_hour), 0)}")
     }
 
     fun getMinute(): Int?{
-        return sp?.getInt(context?.getString(R.string.sp_minute), 0)
+        return sp.getInt(context?.getString(R.string.sp_minute), 0)
         Log.d(TAG, "gethour: minuta a savetime: ${sp?.getInt(context?.getString(R.string.sp_minute), 0)}")
 
     }
@@ -89,7 +89,8 @@ class SaveData{
 
         val calendar = Calendar.getInstance()
         calendar.set(Calendar.HOUR_OF_DAY, hour!!)
-        calendar.set(Calendar.MINUTE, timeManip.addSnoozeTime(sp?.getInt(context?.getString(R.string.sp_snooze_minutes_dely), 15)!!))
+        calendar.set(Calendar.MINUTE, timeManip.addSnoozeTime(sp.getInt(context?.getString(R.string.sp_snooze_minutes_dely), -1)))
+        Log.d(TAG, "setSnooze: drzemka ustawiona na ${sp.getInt(context?.getString(R.string.sp_snooze_minutes_dely), -1)} minut")
         calendar.set(Calendar.SECOND, 0)
 
 
