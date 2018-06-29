@@ -122,7 +122,16 @@
         android:textColor="#FFF"
         android:background="@drawable/white_rounded_button"
         android:text="Nowy Alarm"
-        android:layout_height="wrap_content" />
+       android:drawableStart="@drawable/add_time"
+        android:paddingLeft="80dp"
+        android:paddingRight="80dp"
+        android:layout_height="wrap_content"/>
+
+
+
+
+
+
 
 
 

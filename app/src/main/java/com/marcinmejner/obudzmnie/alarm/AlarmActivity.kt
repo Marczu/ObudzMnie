@@ -16,7 +16,15 @@ class AlarmActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        /*Budzik wyskakujący przez ekran blokady*/
+        initSetupScreen()
+
+        startAlarm()
+        stopAlarm()
+        snoozeButton()
+    }
+
+    private fun initSetupScreen() {
+        /*Activity pop in lock screen*/
         window.apply {
             addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED)
             addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD)
@@ -24,11 +32,7 @@ class AlarmActivity : AppCompatActivity() {
             addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON)
         }
 
-
         setContentView(R.layout.activity_alarm)
-        startAlarm()
-        stopAlarm()
-        snoozeButton()
     }
 
     fun startAlarm(){
@@ -55,6 +59,8 @@ class AlarmActivity : AppCompatActivity() {
 
         }
     }
+
+
 
     override fun onDestroy() {
         super.onDestroy()

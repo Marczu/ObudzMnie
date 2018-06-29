@@ -17,7 +17,7 @@ class MyBroadcastReciver: BroadcastReceiver(){
 
         if(intent?.action.equals("com.tester.alarmmanager")){
             var b = intent?.extras
-            val notify = MyNotification(context).apply { displayNotification() }
+//            val notify = MyNotification(context).apply { displayNotification() }
             Log.d(TAG, "onReceive: alarm uruchomiony")
             initAlarmActivity(context)
         }
